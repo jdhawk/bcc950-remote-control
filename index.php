@@ -92,7 +92,7 @@
 			</tr>
 		</table>
 		<BR><BR><BR><BR><BR><BR><BR><BR>
-		<a href='https://hangouts.google.com/call/oeKxaorMywZ7XQVY5AA5AAEE'>https://hangouts.google.com/call/oeKxaorMywZ7XQVY5AA5AAEE</a>
+	
 		</body>
 		</html>
 		<?php
