@@ -1,21 +1,21 @@
 <?php
 	$Command = $_REQUEST['command'];
 	$Device = "/dev/video1";
-	$SleepStep = 100000;
+	$SleepStep = 0.1;
 	if ($Command == 'move') {
 		echo $_REQUEST['action'];
 		switch ($_REQUEST['action']) {
 			case 'up':
-				exec ("v4l2-ctl -d {$Device} -c tilt_speed=1 && usleep {$SleepStep} && v4l2-ctl -d {$Device} -c tilt_speed=0");
+				exec ("v4l2-ctl -d {$Device} -c tilt_speed=1 && sleep {$SleepStep} && v4l2-ctl -d {$Device} -c tilt_speed=0");
 				break;
 			case 'down':
-				exec ("v4l2-ctl -d {$Device} -c tilt_speed=-1 && usleep {$SleepStep} && v4l2-ctl -d {$Device} -c tilt_speed=0");
+				exec ("v4l2-ctl -d {$Device} -c tilt_speed=-1 && sleep {$SleepStep} && v4l2-ctl -d {$Device} -c tilt_speed=0");
 				break;
 			case 'left':
-				exec ("v4l2-ctl -d {$Device} -c pan_speed=-1 && usleep {$SleepStep} && v4l2-ctl -d {$Device} -c pan_speed=0");
+				exec ("v4l2-ctl -d {$Device} -c pan_speed=-1 && sleep {$SleepStep} && v4l2-ctl -d {$Device} -c pan_speed=0");
 				break;
 			case 'right':
-				exec ("v4l2-ctl -d {$Device} -c pan_speed=1 && usleep {$SleepStep} && v4l2-ctl -d {$Device} -c pan_speed=0");
+				exec ("v4l2-ctl -d {$Device} -c pan_speed=1 && sleep {$SleepStep} && v4l2-ctl -d {$Device} -c pan_speed=0");
 				break;
 			case 'in':
 				$CurrentZoom = preg_replace("#[^\d]+#",'',`v4l2-ctl -d {$Device} -C zoom_absolute`);
